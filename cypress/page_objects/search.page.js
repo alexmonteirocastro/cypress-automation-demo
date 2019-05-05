@@ -19,6 +19,7 @@ export const manualSearchForLocation = (location) => {
     cy.get(selectors.enterManuallyButton).click()
     cy.get(selectors.searchAddressInput).focus().type(location)
     cy.get(selectors.autoCompleteMenuItem).eq(0).should('contain', location).click()
+    cy.wait(5000)
     waitForGetRequest('locationSearch')
 }
 

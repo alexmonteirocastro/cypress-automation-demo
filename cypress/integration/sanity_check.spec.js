@@ -6,7 +6,7 @@ import * as searchPage from '../page_objects/search.page'
 import { expectElementToBeVisible, expectUrlToContain } from '../support/utils'
 
 describe('Basic sanity check for the JemJar application', () => {
-    beforeEach(() => {
+    before(() => {
        welcomePage.visitWelcomePage()
     })
 
