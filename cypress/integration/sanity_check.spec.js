@@ -25,7 +25,7 @@ describe('Basic sanity check for the JemJar application', () => {
         languageSettings.switchToLanguage('en-GB')
     })
 
-    it.only('Skips registration and searches for sites in London', () => {
+    it('Skips registration and searches for sites in London', () => {
         cy.get(welcomePage.selectors.skipButton).click()
         expectUrlToContain('search')
         expectElementToBeVisible(searchPage.selectors.pageHeaderTitle)
