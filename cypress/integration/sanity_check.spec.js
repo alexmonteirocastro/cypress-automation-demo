@@ -2,6 +2,7 @@
 
 import * as welcomePage from '../page_objects/welcome.page'
 import * as languageSettings from '../page_objects/languageSettings.page'
+import * as searchPage from '../page_objects/search.page'
 import { expectElementToBeVisible, expectUrlToContain } from '../support/utils'
 
 describe('Basic sanity check for the JemJar application', () => {
@@ -24,9 +25,13 @@ describe('Basic sanity check for the JemJar application', () => {
         languageSettings.switchToLanguage('en-GB')
     })
 
-    it('Skips registration and searches for sites in London', () => {
+    it.only('Skips registration and searches for sites in London', () => {
         cy.get(welcomePage.selectors.skipButton).click()
         expectUrlToContain('search')
-        cy.get()
+        expectElementToBeVisible(searchPage.selectors.pageHeaderTitle)
+        expectElementToBeVisible(searchPage.selectors.pageHeaderIntro)
+        expectElementToBeVisible(searchPage.selectors.blankslateIllustration)
+        expectElementToBeVisible(searchPage.selectors.findMeCtaButton)
+        searchPage.manualSearchForLocation('London')
     })
 })

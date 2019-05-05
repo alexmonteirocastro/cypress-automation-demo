@@ -13,5 +13,11 @@ npm install
 Start the cypress standalone application:
 
 ```
-npm e2e:open
+npm run e2e:open
+```
+
+Run the automated tests: 
+
+```
+npm run e2e:run
 ```
